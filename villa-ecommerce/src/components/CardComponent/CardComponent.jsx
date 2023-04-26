@@ -1,29 +1,45 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
+import { useContext } from "react";
+import { CartContext } from "../../context/ItemsContext";
 
 const CardComponent = ({ dishes }) => {
+  const [items, setItems] = useContext(CartContext);
+
   return (
     <Card sx={{ maxWidth: 345, m: 4 }}>
       <CardActionArea>
         <CardMedia component="img" image={dishes.image} alt="green iguana" />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="h5">
             {dishes.category}
           </Typography>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="h5">
             {dishes.title}
           </Typography>
-          <Typography gutterBottom variant="h5" component="div">
-            {dishes.price} | {dishes.tipos}
+          <Typography gutterBottom component="h5">
+            $ {dishes.price} | {dishes.tipos}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            $ {dishes.description} | stock: {dishes.stock}
+            description: {dishes.description} | stock: {dishes.stock}
           </Typography>
         </CardContent>
+        <button
+          onClick={() =>
+            setItems((prevState) => [
+              ...prevState,
+              {
+                id: dishes.id,
+                amount: 1,
+              },
+            ])
+          }
+        >
+          add to cart
+        </button>
       </CardActionArea>
     </Card>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // FIRBASE - FIRESTORE
 import {
@@ -8,11 +8,12 @@ import {
   where,
   documentId,
 } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
+import { db } from "../../firebase/firebase";
 
 import CardComponent from "../../components/CardComponent/CardComponent";
 
 import "./TacosDetail.css";
+import { Layout } from "../../components/Layout/Layout";
 
 const TacosDetail = () => {
   const [dishes, setDishes] = useState([]);
@@ -36,14 +37,12 @@ const TacosDetail = () => {
   }, [id]);
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+    <Layout>
       <h1>Tacos Details</h1>
       {dishes.map((data) => {
         return <CardComponent dishes={data} key={data.id} />;
       })}
-    </div>
+    </Layout>
   );
 };
 

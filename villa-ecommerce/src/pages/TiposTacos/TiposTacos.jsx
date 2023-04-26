@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 // FIRBASE - FIRESTORE
 import { collection, query, getDocs, where } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
+import { db } from "../../firebase/firebase";
 
 import CardComponent from "../../components/CardComponent/CardComponent";
+import { Layout } from "../../components/Layout/Layout";
 
 // COMPONENTS
 
 const TiposTacos = () => {
   const [dishes, setDishes] = useState([]);
 
-  let { tipos } = useParams();
+  let { id } = useParams();
 
   useEffect(() => {
     const getDishes = async () => {
-      const q = query(collection(db, "dishes"), where("tipos", "==", tipos));
+      const q = query(collection(db, "dishes"), where("category", "==", id));
       const docs = [];
       const querySnapshot = await getDocs(q);
       // console.log('DATA:', querySnapshot);
@@ -28,17 +29,15 @@ const TiposTacos = () => {
       setDishes(docs);
     };
     getDishes();
-  }, [tipos]);
+  }, [id]);
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+    <Layout>
       <h1>Tacos por Tipos</h1>
       {dishes.map((data) => {
         return <CardComponent dishes={data} key={data.id} />;
       })}
-    </div>
+    </Layout>
   );
 };
 

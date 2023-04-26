@@ -1,15 +1,14 @@
-
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import CardComponent from "../CardComponent/CardComponent";
 import { Link } from "react-router-dom";
 
 import "./CardDish.css";
-import Spinner from "../Spinner/Spinner";
 
 // FIRBASE - FIRESTORE
 import { collection, query, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
+import { db } from "../../firebase/firebase";
+import Spinner from "../Spinner/Spinner";
 
 const CardDish = () => {
   const [dishes, setDishes] = useState([]);
@@ -25,7 +24,7 @@ const CardDish = () => {
         // console.log('DATA:', doc.data(), 'ID:', doc.id);
         docs.push({ ...doc.data(), id: doc.id });
       });
-      // console.log(docs);
+      console.log(docs);
       setDishes(docs);
     };
     getDishes();
@@ -45,7 +44,7 @@ const CardDish = () => {
           {dishes.map((data) => {
             return (
               <Link
-                to={`details/${data.id}`}
+                to={`item/${data.id}`}
                 style={{ textDecoration: "none" }}
                 key={data.id}
               >

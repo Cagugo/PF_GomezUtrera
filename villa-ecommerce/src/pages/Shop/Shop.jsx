@@ -1,15 +1,15 @@
-import { Layout } from "../../components/Layout/Layout"
-import React, { useState } from "react";
+import { Layout } from "../../components/Layout/Layout";
+import { useState } from "react";
 
 // Firebase
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
 
 import "./Shop.css";
 
 import TextField from "@mui/material/TextField";
 
 import MessageSuccess from "../../components/MessageSuccess/MessageSuccess";
+import { db } from "../../firebase/firebase";
 
 const styles = {
   containerShop: {
@@ -45,42 +45,40 @@ const Shop = () => {
     setValues(initialState);
   };
 
-
-
   return (
-    <div style={styles.containerShop}>
-      <Layout><h1>Cart</h1></Layout>
-
-      <form className="FormContainer" onSubmit={onSubmit}>
-        <TextField
-          placeholder="Name"
-          style={{ margin: 10, width: 400 }}
-          name="name"
-          value={values.name}
-          onChange={onChange}
-        />
-        <TextField
-          placeholder="Last Name"
-          style={{ margin: 10, width: 400 }}
-          name="lastName"
-          value={values.lastName}
-          onChange={onChange}
-        />
-        <TextField
-          placeholder="City"
-          style={{ margin: 10, width: 400 }}
-          name="city"
-          value={values.city}
-          onChange={onChange}
-        />
-        <button className="btnASendAction" type="submit">
-          Send
-        </button>
-      </form>
-      {purchaseID.length ? <MessageSuccess purchaseID={purchaseID} /> : null}
-    </div>
+    <Layout>
+      <div style={styles.containerShop}>
+        <h1>Cart</h1>
+        <form className="FormContainer" onSubmit={onSubmit}>
+          <TextField
+            placeholder="Name"
+            style={{ margin: 10, width: 400 }}
+            name="name"
+            value={values.name}
+            onChange={onChange}
+          />
+          <TextField
+            placeholder="Last Name"
+            style={{ margin: 10, width: 400 }}
+            name="lastName"
+            value={values.lastName}
+            onChange={onChange}
+          />
+          <TextField
+            placeholder="City"
+            style={{ margin: 10, width: 400 }}
+            name="city"
+            value={values.city}
+            onChange={onChange}
+          />
+          <button className="btnASendAction" type="submit">
+            Send
+          </button>
+        </form>
+        {purchaseID.length ? <MessageSuccess purchaseID={purchaseID} /> : null}
+      </div>
+    </Layout>
   );
 };
 
 export default Shop;
-

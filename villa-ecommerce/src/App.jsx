@@ -1,12 +1,12 @@
-import { Router } from "./components/Router/Router"
-
+import { Router } from "./components/Router/Router";
+import { CartProvider } from "./context/ItemsContext";
 
 function App() {
-  
-
   return (
-   <Router />
-  )
+    <CartProvider>
+      <Router />
+    </CartProvider>
+  );
 }
 
-export default App
+export default App;

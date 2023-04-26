@@ -55,22 +55,22 @@ const MenuTiposTacos = () => {
         }}
       >
         <MenuItem>
-          <Link to="/Menu-tacos/CARNE" style={styles.link}>
+          <Link to="/Menu-tacos/carne" style={styles.link}>
             CARNE
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/Menu-tacos/POLLO" style={styles.link}>
+          <Link to="/Menu-tacos/pollo" style={styles.link}>
             POLLO
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/Menu-tacos/PESCADO" style={styles.link}>
+          <Link to="/Menu-tacos/pescado" style={styles.link}>
             PESCADO
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/Menu-tacos/CERDO" style={styles.link}>
+          <Link to="/Menu-tacos/cerdo" style={styles.link}>
             CERDO
           </Link>
         </MenuItem>
