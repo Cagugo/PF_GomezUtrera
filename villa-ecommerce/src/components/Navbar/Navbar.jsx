@@ -18,6 +18,7 @@
 
 import React, { useContext, useState } from "react";
 import { AppBar, Button, Container, Toolbar } from "@mui/material";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import MenuTiposTacos from "../MenuTiposTacos/MenuTiposTacos";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
@@ -66,7 +67,8 @@ const NavbarNavigation = () => {
           </Link>
         
           <Button onClick={handleClickCart} style={styles.linkButton}>
-            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping" ></i>
+            <AddShoppingCartIcon sx={{ color: "white" }} />
             {items.length}
           </Button>
         </Toolbar>

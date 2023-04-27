@@ -8,6 +8,7 @@ import "./Shop.css";
 
 import TextField from "@mui/material/TextField";
 
+
 import MessageSuccess from "../../components/MessageSuccess/MessageSuccess";
 import { db } from "../../firebase/firebase";
 import { CartContext } from "../../context/ItemsContext";
@@ -26,6 +27,7 @@ const initialState = {
 };
 
 const Shop = () => {
+  
   const {setItems} = useContext(CartContext)
   const [values, setValues] = useState(initialState);
   // Este estado está destinado a guardar el id de la compra
@@ -51,25 +53,25 @@ const Shop = () => {
   return (
     <Layout>
       <div style={styles.containerShop}>
-        <h1>Cart</h1>
+        <h2>Formulario de Compra</h2>
         <form className="FormContainer" onSubmit={onSubmit}>
           <TextField
             placeholder="Name"
-            style={{ margin: 10, width: 400 }}
+            style={{ margin: 10, width: 400, backgroundColor: "whitesmoke" }}
             name="name"
             value={values.name}
             onChange={onChange}
           />
           <TextField
             placeholder="Last Name"
-            style={{ margin: 10, width: 400 }}
+            style={{ margin: 10, width: 400, backgroundColor: "whitesmoke" }}
             name="lastName"
             value={values.lastName}
             onChange={onChange}
           />
           <TextField
             placeholder="City"
-            style={{ margin: 10, width: 400 }}
+            style={{ margin: 10, width: 400, backgroundColor: "whitesmoke" }}
             name="city"
             value={values.city}
             onChange={onChange}

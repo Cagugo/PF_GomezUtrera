@@ -43,7 +43,7 @@ const MenuTiposTacos = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <span style={styles.upperText}>Menu</span>Tacos
+        <span style={styles.upperText}></span> Menú-Tacos por tipo
       </Button>
       <Menu
         id="basic-menu"
