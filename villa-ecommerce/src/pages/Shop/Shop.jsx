@@ -1,5 +1,5 @@
 import { Layout } from "../../components/Layout/Layout";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 // Firebase
 import { collection, addDoc } from "firebase/firestore";
@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 
 import MessageSuccess from "../../components/MessageSuccess/MessageSuccess";
 import { db } from "../../firebase/firebase";
+import { CartContext } from "../../context/ItemsContext";
 
 const styles = {
   containerShop: {
@@ -25,6 +26,7 @@ const initialState = {
 };
 
 const Shop = () => {
+  const {setItems} = useContext(CartContext)
   const [values, setValues] = useState(initialState);
   // Este estado está destinado a guardar el id de la compra
   const [purchaseID, setPurchaseID] = useState("");
@@ -43,6 +45,7 @@ const Shop = () => {
     // console.log("Document written with ID: ", docRef.id);
     setPurchaseID(docRef.id);
     setValues(initialState);
+    setItems([])
   };
 
   return (

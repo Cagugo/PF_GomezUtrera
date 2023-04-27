@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -5,9 +6,12 @@ import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 import { useContext } from "react";
 import { CartContext } from "../../context/ItemsContext";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const CardComponent = ({ dishes }) => {
-  const [items, setItems] = useContext(CartContext);
+  const {addToCart} = useContext(CartContext);
+  console.log(addToCart)
 
   return (
     <Card sx={{ maxWidth: 345, m: 4 }}>
@@ -27,19 +31,18 @@ const CardComponent = ({ dishes }) => {
             description: {dishes.description} | stock: {dishes.stock}
           </Typography>
         </CardContent>
-        <button
-          onClick={() =>
-            setItems((prevState) => [
-              ...prevState,
-              {
-                id: dishes.id,
-                amount: 1,
-              },
-            ])
-          }
+        <Button
+          onClick={()=>addToCart(dishes)}
         >
-          add to cart
-        </button>
+          Add to cart
+        </Button>
+        <Link
+                to={`item/${dishes.id}`}
+                style={{ textDecoration: "none" }}
+                
+              >
+                Detalle del Taco
+              </Link>
       </CardActionArea>
     </Card>
   );

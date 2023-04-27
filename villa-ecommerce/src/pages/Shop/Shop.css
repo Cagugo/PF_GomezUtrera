@@ -11,10 +11,10 @@
 }
 
 .btnASendAction {
-	background: rgb(108, 14, 14);
+	background: black;
 	background: radial-gradient(
 		circle,
-		rgba(108, 14, 14, 1) 77%,
+	black,
 		rgba(172, 34, 34, 1) 100%
 	);
 	color: white;
@@ -23,7 +23,7 @@
 	border-radius: 8px;
 	font-size: 18px;
 	transition: background, color 0.5s;
-	outline: #ff0000;
+	outline: #00ff40;
 	border: none;
 	margin: 10px;
 }

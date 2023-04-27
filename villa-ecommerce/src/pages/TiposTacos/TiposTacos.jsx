@@ -7,6 +7,7 @@ import { db } from "../../firebase/firebase";
 
 import CardComponent from "../../components/CardComponent/CardComponent";
 import { Layout } from "../../components/Layout/Layout";
+import { Grid } from "@mui/material";
 
 // COMPONENTS
 
@@ -34,9 +35,11 @@ const TiposTacos = () => {
   return (
     <Layout>
       <h1>Tacos por Tipos</h1>
+      <Grid sx={{display: "flex"}}>
       {dishes.map((data) => {
         return <CardComponent dishes={data} key={data.id} />;
       })}
+      </Grid>
     </Layout>
   );
 };

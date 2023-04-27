@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 
 import CardComponent from "../CardComponent/CardComponent";
@@ -43,13 +44,9 @@ const CardDish = () => {
         <div className="CardListContainer">
           {dishes.map((data) => {
             return (
-              <Link
-                to={`item/${data.id}`}
-                style={{ textDecoration: "none" }}
-                key={data.id}
-              >
-                <CardComponent dishes={data} />
-              </Link>
+             
+                <CardComponent dishes={data} key={data.id} />
+              
             );
           })}
         </div>

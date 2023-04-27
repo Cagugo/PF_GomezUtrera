@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Grid } from "@mui/material";
 import Navbar from "../Navbar/Navbar";
 
@@ -16,7 +17,7 @@ export const Layout = ({ children }) => {
         sx={{
           flex: "1",
           padding: "1rem",
-          border: "1px solid red",
+          border: "3px solid green",
         }}
       >
         {children}
