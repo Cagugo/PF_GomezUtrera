@@ -16,9 +16,9 @@ Logo:
 ![logo IX villa frida rest](https://user-images.githubusercontent.com/117235373/235007989-813590f5-afec-4c04-baf5-a971fa147b52.PNG)
 
 
+Aqui les va un pequeño GIF del proyecto:
 
-
-
+![AnimationGIF-min](https://user-images.githubusercontent.com/117235373/235030489-ddcee100-901e-49d5-aa4d-72e79be442d0.gif)
 
 
 Proyecto de sitio e-commerce creado para el curso de React.js de CoderHouse, a partir de un sitio web en este caso Villa Frida (Tacos Mexicanos Fusión).
